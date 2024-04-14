@@ -17,7 +17,7 @@ const Register = () => {
     e.preventDefault();
     // console.log(name, College, age, mobile);
     try {
-      const response = await fetch("http://localhost:5000/newuser", {
+      const response = await fetch("https://mern-host-event-web.vercel.app/newuser", {
         method: "post",
         body: JSON.stringify({ name, age, college, email, mobile }),
         headers: {
@@ -112,56 +112,3 @@ const Register = () => {
 };
 
 export default Register;
-
-// import React from "react";
-
-// // reactstrap components
-// import { Card, CardBody, Form, Container, Row, Col } from "reactstrap";
-// import UserForm from "./userForm/UserForm.js";
-// // core components
-// import DemoNavbar from "../../components/Navbars/DemoNavbar.js";
-// import SimpleFooter from "../../components/Footers/SimpleFooter.js";
-
-// class Register extends React.Component {
-//   render() {
-//     return (
-//       <>
-//         <DemoNavbar />
-//         <main ref="main">
-//           <section className="section section-shaped section-lg">
-//             <div className="shape shape-style-1 bg-gradient-default">
-//               <span />
-//               <span />
-//               <span />
-//               <span />
-//               <span />
-//               <span />
-//               <span />
-//               <span />
-//             </div>
-//             <Container className="pt-lg-7">
-//               <Row className="justify-content-center">
-//                 <Col lg="5 text-center">
-//                   <h2 className="text-white"> Event Registration From</h2>
-//                   <Card className="bg-secondary shadow border-0">
-//                     <CardBody className="px-lg-5 py-lg-5">
-//                       <div className="text-center text-muted mb-4">
-//                         <h6>Fill your details</h6>
-//                       </div>
-//                       <Form role="form">
-//                         <UserForm />
-//                       </Form>
-//                     </CardBody>
-//                   </Card>
-//                 </Col>
-//               </Row>
-//             </Container>
-//           </section>
-//         </main>
-//         <SimpleFooter />
-//       </>
-//     );
-//   }
-// }
-
-// export default Register;
