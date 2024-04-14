@@ -3,12 +3,15 @@ import "./admin.css";
 import { Card, CardBody, Container, Row, Col } from "reactstrap";
 import DemoNavbar from "components/Navbars/DemoNavbar";
 import SimpleFooter from "components/Footers/SimpleFooter";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
-  const [college, setCollege] = useState("");
   const [age, setAge] = useState("");
+  const [college, setCollege] = useState("");
+  const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
+  const navigate = useNavigate();
 
   const CreateUser = async (e) => {
     e.preventDefault();
@@ -16,7 +19,7 @@ const Register = () => {
     try {
       const response = await fetch("http://localhost:5000/newuser", {
         method: "post",
-        body: JSON.stringify({ name, college, age, mobile }),
+        body: JSON.stringify({ name, age, college, email, mobile }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -27,6 +30,8 @@ const Register = () => {
     } catch (error) {
       console.log(error);
     }
+
+    navigate("/");
   };
   return (
     <>
@@ -62,6 +67,13 @@ const Register = () => {
                         onChange={(e) => setName(e.target.value)}
                       />
                       <input
+                        type="number"
+                        placeholder="Age..."
+                        className="input-box"
+                        value={age}
+                        onChange={(e) => setAge(e.target.value)}
+                      />
+                      <input
                         type="text"
                         placeholder="College..."
                         className="input-box"
@@ -69,12 +81,13 @@ const Register = () => {
                         onChange={(e) => setCollege(e.target.value)}
                       />
                       <input
-                        type="number"
-                        placeholder="Age..."
+                        type="email"
+                        placeholder="Email..."
                         className="input-box"
-                        value={age}
-                        onChange={(e) => setAge(e.target.value)}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
+
                       <input
                         type="number"
                         placeholder="Mobile..."

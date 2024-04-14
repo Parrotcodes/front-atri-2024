@@ -90,7 +90,11 @@ class SimpleFooter extends React.Component {
               <Col md="6">
                 <div className=" copyright">
                   © {new Date().getFullYear()}{" "}
-                  <a href="#r" rel="noreferrer">
+                  <a
+                    href="https://gravatar.com/parrotrakhy"
+                    target="blank"
+                    rel="noreferrer"
+                  >
                     Code Rakhy
                   </a>
                   .
