@@ -17,7 +17,7 @@ const Register = () => {
     e.preventDefault();
     // console.log(name, College, age, mobile);
     try {
-      const response = await fetch("https://mern-host-event-web.vercel.app/newuser", {
+      const response = await fetch("https://mern-atri-backend.onrender.com/newuser", {
         method: "post",
         body: JSON.stringify({ name, age, college, email, mobile }),
         headers: {
